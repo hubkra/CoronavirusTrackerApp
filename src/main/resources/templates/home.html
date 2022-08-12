@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>CoronaVirus Tracker App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h1>Coronavirus Tracker App</h1>
+    <p>This app lists the current number of cases reported across the globe</p>
+
+        <div class="jumbotron">
+            <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+            <p>Total reported cases</p>
+        </div>
+
+
+<table class="table">
+    <tr>
+        <th>STATE</th>
+        <th>COUNTRY</th>
+        <th>TOTAL CASES REPORTED</th>
+    </tr>
+    <tr th:each="localStat : ${localStats}">
+        <td th:text="${localStat.state}">Null</td>
+        <td th:text="${localStat.country}"></td>
+        <td th:text="${localStat.latestTotalCases}">0</td>
+    </tr>
+</table>
+</div>
+</body>
+
+</html>
